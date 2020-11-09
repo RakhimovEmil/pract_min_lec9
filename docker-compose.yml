@@ -1,0 +1,10 @@
+version: "3"
+services: 
+    balance:
+        build: controller/
+        ports: 
+         - "8080:8080"
+    instance1:
+        build: service/
+        ports:
+         - "8081:8081"
