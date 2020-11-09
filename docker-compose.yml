@@ -1,10 +1,15 @@
 version: "3"
 services: 
-    balance:
-        build: controller/
+    redis:
+        image: "redis"
         ports: 
-         - "8080:8080"
-    instance1:
-        build: service/
+         - "6379:6379"
+    mongo:
+        image: "mongo"
         ports:
-         - "8081:8081"
+         - "27017:27017"
+    controller:
+        build: /controller
+        ports:
+         - "8080:8080"
+        network_mode: host
